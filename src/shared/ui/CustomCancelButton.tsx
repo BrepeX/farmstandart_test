@@ -1,9 +1,13 @@
 import { Button, Form } from "antd";
 import { FC } from "react";
 import { GeneralControl } from "@widgets/collecting-components/types";
-import useFormInstance from "antd/es/form/hooks/useFormInstance";
+import { useNavigate } from "react-router-dom";
 
-export const CustomSendButton: FC<GeneralControl> = ({
+type TResponseData = {
+  redirect: string;
+};
+
+export const CustomCancelButton: FC<GeneralControl> = ({
   name,
   id,
   disabled,
@@ -11,21 +15,18 @@ export const CustomSendButton: FC<GeneralControl> = ({
   action_url,
   method,
 }) => {
-  const form = useFormInstance();
+  const navigate = useNavigate();
 
   const handleForm = async () => {
     if (!action_url) return;
-    const formData = form.getFieldsValue();
 
     try {
       const response = await fetch(action_url, {
-        body: JSON.stringify(formData),
         method: method,
       });
-
-      console.log(response);
-
       if (!response.ok) throw Error("Error");
+      const responseJson: TResponseData = await response.json();
+      navigate(responseJson.redirect);
     } catch (error) {
       console.error(error);
     }
@@ -37,7 +38,7 @@ export const CustomSendButton: FC<GeneralControl> = ({
         onClick={handleForm}
         danger={style === "danger"}
         disabled={disabled}
-        htmlType="button"
+        htmlType="submit"
       >
         {name}
       </Button>

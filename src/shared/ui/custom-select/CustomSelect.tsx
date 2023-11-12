@@ -29,7 +29,7 @@ export const CustomSelect: FC<GeneralControl> = ({
         .catch((error) => {
           console.error(error);
         });
-  }, []);
+  }, [value_selection_url]);
 
   return (
     <Form.Item labelAlign={label_position} name={id} label={label}>

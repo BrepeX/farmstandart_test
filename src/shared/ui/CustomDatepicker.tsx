@@ -8,6 +8,6 @@ export const CustomDatepicker: FC<GeneralControl> = ({
   id,
 }) => (
   <Form.Item name={id} labelAlign={label_position} label={label}>
-    <DatePicker />
+    <DatePicker style={{ width: "100%" }} />
   </Form.Item>
 );

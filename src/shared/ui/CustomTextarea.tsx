@@ -5,6 +5,6 @@ import { GeneralControl } from "@widgets/collecting-components/types";
 
 export const CustomTextarea: FC<GeneralControl> = ({ id, label, value }) => (
   <Form.Item name={id} label={label}>
-    <TextArea value={value} />
+    <TextArea value={value ? value : undefined} />
   </Form.Item>
 );

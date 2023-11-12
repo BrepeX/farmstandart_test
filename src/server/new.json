@@ -154,7 +154,7 @@
                 "placeholder": "Комментарий"
               },
               {
-                "control_kind": "row",
+                "control_type": "row",
                 "id": "form_actions_row",
                 "is_visible": true,
                 "style": "default",

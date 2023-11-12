@@ -7,4 +7,5 @@ export enum enumTags {
   textarea = "textarea",
   datepicker = "datepicker",
   send = "send",
+  rollback = "rollback",
 }

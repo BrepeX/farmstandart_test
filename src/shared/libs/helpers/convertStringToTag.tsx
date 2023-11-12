@@ -1,20 +1,21 @@
 import { enumTags } from "../../types";
 import {
   CustomCol,
+  CustomDatepicker,
   CustomForm,
   CustomInput,
   CustomRow,
   CustomSelect,
+  CustomSendButton,
+  CustomTextarea,
+  CustomCancelButton,
 } from "../../ui";
 import { FC } from "react";
 import { TCustomColProps } from "../../ui/CustomCol.tsx";
 import { GeneralControl } from "@widgets/collecting-components/types";
-import { CustomTextarea } from "../../ui/CustomTextarea.tsx";
-import { CustomDatepicker } from "../../ui/CustomDatepicker.tsx";
-import { CustomSendButton } from "../../ui/CustomSendButton.tsx";
 
 export const convertStringToTag = (
-  tagString: enumTags,
+  tagString: enumTags | undefined,
 ): FC<TCustomColProps> | FC<GeneralControl> | null => {
   switch (tagString) {
     case enumTags.col:
@@ -40,6 +41,9 @@ export const convertStringToTag = (
 
     case enumTags.send:
       return CustomSendButton;
+
+    case enumTags.rollback:
+      return CustomCancelButton;
 
     default:
       return null;

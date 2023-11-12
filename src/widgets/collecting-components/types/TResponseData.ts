@@ -4,21 +4,27 @@ export type GeneralControl = {
   control_type: enumTags;
   id?: string;
   is_visible?: boolean;
-  style?: string;
+  style?: "default" | "danger" | "primary" | "warning";
   span?: Span;
   children?: GeneralControl[];
   value_selection_kind?: string;
   put_value_url?: string;
   value_selection_url?: string;
-  value?: any;
+  value?: null | string | number;
   label?: string;
   label_position?: "left" | "right";
-  control_kind?: string;
+  control_kind?:
+    | "text"
+    | "number"
+    | "email"
+    | "password"
+    | "button"
+    | "date_time";
   state?: string;
   text?: string;
   placeholder?: string;
-  method?: string;
-  action_kind?: string;
+  method?: "post" | "get" | "put" | "delete";
+  action_kind?: enumTags.send | enumTags.rollback;
   name?: string;
   action_url?: string;
   disabled?: boolean;

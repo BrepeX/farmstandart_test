@@ -1,7 +1,3 @@
-import { useEffect, useState } from "react";
-import { TResponseData } from "@widgets/collecting-components/types";
-import { fetchComponentsData } from "@widgets/collecting-components/api/fetchComponentsData.ts";
-
 // const res = {
 //   firstname: "Stanislav",
 //   lastname: "Kushnir",
@@ -13,14 +9,12 @@ import { fetchComponentsData } from "@widgets/collecting-components/api/fetchCom
 //   comment: "Some comment",
 // };
 
+import { CollectingComponents } from "@widgets/collecting-components/ui/CollectingComponents.tsx";
+
 export const New = () => {
-  const [formData, setFormData] = useState<TResponseData | null>(null);
-
-  useEffect(() => {
-    fetchComponentsData().then((res) => setFormData(res));
-  }, []);
-
-  console.log(formData);
-
-  return <div></div>;
+  return (
+    <div>
+      <CollectingComponents />
+    </div>
+  );
 };

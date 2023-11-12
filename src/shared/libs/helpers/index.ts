@@ -1,1 +1,1 @@
-export { convertStringToTag } from "./convertStringToTag.ts";
+export { convertStringToTag } from "./convertStringToTag.tsx";
