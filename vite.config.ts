@@ -20,6 +20,7 @@ export default defineConfig({
     port: 3000,
   },
   resolve: {
+    extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
     alias: {
       "@app": resolve(__dirname, "src/app"),
       "@pages": resolve(__dirname, "src/pages"),
