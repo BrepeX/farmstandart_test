@@ -1,5 +1,7 @@
+import { enumTags } from "@shared/types";
+
 export type GeneralControl = {
-  control_type: string;
+  control_type: enumTags;
   id?: string;
   is_visible?: boolean;
   style?: string;
@@ -10,7 +12,7 @@ export type GeneralControl = {
   value_selection_url?: string;
   value?: any;
   label?: string;
-  label_position?: string;
+  label_position?: "left" | "right";
   control_kind?: string;
   state?: string;
   text?: string;
@@ -20,17 +22,25 @@ export type GeneralControl = {
   name?: string;
   action_url?: string;
   disabled?: boolean;
-  justify?: Justify;
+  justify?: Justify | TJustifyValues;
 };
 
 interface Justify {
-  xs?: string;
-  sm?: string;
-  md?: string;
-  lg?: string;
-  xl?: string;
-  xxl?: string;
+  xs?: TJustifyValues;
+  sm?: TJustifyValues;
+  md?: TJustifyValues;
+  lg?: TJustifyValues;
+  xl?: TJustifyValues;
+  xxl?: TJustifyValues;
 }
+
+type TJustifyValues =
+  | "start"
+  | "end"
+  | "center"
+  | "space-around"
+  | "space-between"
+  | "space-evenly";
 
 interface Span {
   xs?: number;
@@ -41,7 +51,6 @@ interface Span {
   xxl?: number;
 }
 
-// Пример использования для объекта верхнего уровня
 export type TResponseData = {
   view: GeneralControl;
 };

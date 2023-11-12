@@ -1,8 +1,9 @@
 import { FC, PropsWithChildren } from "react";
-import { Col, type ColProps } from "antd";
+import { Col } from "antd";
+import { GeneralControl } from "@widgets/collecting-components/types";
 
-type TCustomColProps = PropsWithChildren & ColProps;
+export type TCustomColProps = PropsWithChildren & GeneralControl;
 
-export const CustomCol: FC<TCustomColProps> = ({ children, ...args }) => (
-  <Col {...args}>{children}</Col>
+export const CustomCol: FC<TCustomColProps> = ({ children, span }) => (
+  <Col {...span}>{children}</Col>
 );

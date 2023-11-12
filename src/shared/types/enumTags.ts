@@ -4,4 +4,7 @@ export enum enumTags {
   select = "select",
   row = "row",
   col = "col",
+  textarea = "textarea",
+  datepicker = "datepicker",
+  send = "send",
 }

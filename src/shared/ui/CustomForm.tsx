@@ -1,8 +1,9 @@
-import { Form, FormProps } from "antd";
+import { Form } from "antd";
 import { FC, PropsWithChildren } from "react";
+import { GeneralControl } from "@widgets/collecting-components/types";
 
-type TCustomFormProps = PropsWithChildren & FormProps;
+type TCustomFormProps = PropsWithChildren & GeneralControl;
 
-export const CustomForm: FC<TCustomFormProps> = ({ children, ...args }) => (
-  <Form {...args}>{children}</Form>
+export const CustomForm: FC<TCustomFormProps> = ({ children, disabled }) => (
+  <Form disabled={disabled}>{children}</Form>
 );

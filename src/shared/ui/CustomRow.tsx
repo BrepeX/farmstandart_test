@@ -1,8 +1,9 @@
-import { Row, RowProps } from "antd";
+import { Row } from "antd";
 import { FC, PropsWithChildren } from "react";
+import { GeneralControl } from "@widgets/collecting-components/types";
 
-type TCustomRowProps = RowProps & PropsWithChildren;
+type TCustomRowProps = GeneralControl & PropsWithChildren;
 
-export const CustomRow: FC<TCustomRowProps> = ({ children, ...args }) => (
-  <Row {...args}>{children}</Row>
+export const CustomRow: FC<TCustomRowProps> = ({ children, justify }) => (
+  <Row justify={justify}>{children}</Row>
 );
